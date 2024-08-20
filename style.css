@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Sarala:wght@400;700&display=swap');
+
+*, *::before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/**** VARIABLES ****/
+:root {
+  --color-primary: #783278;
+  --color-secondary: #A983A9;
+  --color-accent: #f76707;
+  --color-black: #000;
+  --color-gray-dark: #212529;
+  --color-gray-medium: #495057;
+  --color-gray-light: #ced4da;
+  --color-white: #f8f9fa;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+/**** TYPOGRAPHY ****/
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-gray-dark);
+  font-family: "Sarala"
+}
+
+h1 {
+  font-size: 6.2rem;
+}
+
+h2 {
+  font-size: 4.4rem;
+}
+
+p {
+  color: var(--color-gray-medium);
+  font-size: 2rem;
+  font-family: "Hind"
+}
+
+a {
+  font-family: "Hind"
+}
+
+/**** GENERAL ****/
+.container {
+  margin: 0 auto;
+  max-width: 114rem;
+  padding: 2rem 4rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+/**** SECTION ****/
+.section {
+  padding: 6rem 0 6rem;
+}
+
+.section__heading {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 48em) {
+  .grid--1x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 64em) {
+  .grid--1x3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/**** BUTTON ****/
+.button {
+  align-items: center;
+  border-radius: 30px;
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: bold;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 2rem 5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .3s;
+  width: 100%;  
+}
+
+.button--accent {
+  background-color: var(--color-accent);
+}
+
+.button--accent:hover {
+  background-color: hsl(24, 94%, 40%);
+  transform: scale(1.1);
+}
+
+.button--primary {
+  background-color: var(--color-primary);
+}
+
+.button--primary:hover {
+  background-color: hsl(300, 41%, 20%);
+  transform: scale(1.1);
+}
+
+
+.button--secondary {
+  background-color: var(--color-secondary);
+  transform: scale(1.1);
+}
+
+.button--secondary:hover {
+  background-color: hsl(300, 18%, 45%);
+  transform: scale(1.1);
+}
+
+/**** CARD ****/
+.card {
+  background: var(--color-white);
+  padding: 4rem;
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/**** NAV ****/
+.nav {
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.nav .container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.nav__brand {
+  display: block;
+}
+
+.nav__brand img {
+  height: 4rem;
+}
+
+#nav__toggle {
+  visibility: hidden;
+}
+
+#nav__toggle:checked ~ .nav__list {
+  display: flex;
+}
+
+.nav__menu {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 2rem;
+  justify-content: space-between;
+  width: 2rem;
+}
+
+.nav__menu:hover span {
+  background-color: var(--color-white);
+}
+
+.nav__menu span {
+  background-color: var(--color-gray-light);
+  border-radius: 3px;
+  height: 3px;
+  transition: .3s;
+}
+
+.nav__list {
+  display: none;
+  flex-direction: column;
+  gap: 2rem;
+  list-style: none;
+  padding-top: 2rem;
+  text-align: center; 
+  width: 100%;
+}
+
+.nav__item:hover a {
+  color: var(--color-accent);
+}
+
+.nav__item a {
+  color: var(--color-gray-light);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+@media screen and (min-width: 48em) {
+  .nav__menu {
+    display: none;
+  }
+
+  .nav__list {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    padding-top: 0;
+    width: auto;
+  }
+}
+
+/**** HERO ****/
+.hero {
+  background-image: linear-gradient(to right bottom, rgba(135, 91, 169, 0.8), rgba(216, 181, 219, 0.153)), url(images/hero-bg.jpg);
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+  padding-top: 14rem;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.hero__heading {
+  color: var(--color-white);
+  line-height: 1;
+}
+
+.hero__text {
+  color: var(--color-gray-light);
+}
+
+.hero__link {
+  color: var(--color-white);
+  font-size: 1.5rem;
+  transition: .3s;
+}
+
+.hero__link:hover {
+  color: var(--color-gray-light)
+}
+
+.hero__content > .button {
+  max-width: 70%;
+}
+
+@media screen and (min-width: 48em) {
+  .hero__content {
+    align-items: start;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .hero__heading {
+    font-size: 8rem;
+  }
+
+  .hero__text {
+    font-size: 3rem;
+  }
+
+  .hero__content .button {
+    font-size: 2rem;
+  }
+}
+
+/* SKILLS */
+.skills {
+  background: var(--color-gray-dark);
+  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
+  position: relative;
+  top: 3px;
+}
+.skills .grid {
+  gap: 6rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.skills .section__heading {
+  color: var(--color-white)
+}
+
+.skills img {
+  width: 100%;
+}
+
+@media screen and (min-width: 48em) {
+  .skills {
+    padding-bottom: 14rem;
+  }
+}
+
+/* CONTACT */
+.contact {
+  background-color: var(--color-gray-dark);
+  padding: 0;
+}
+
+.contact .container {
+  padding: 0;
+}
+
+.contact .card {
+  background: var(--color-secondary);
+}
+
+.contact .card__body {
+  gap: 4rem;
+}
+
+.contact__icon {
+  fill: var(--color-gray-dark);
+  transition: .3s;
+}
+
+.contact__icon:hover {
+  fill: var(--color-primary);
+}
+
+@media screen and (min-width: 48em) {
+  .contact {
+    position: relative;
+    height: 40rem;
+  }
+  .contact .card {
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    left: 50%;
+    padding: 5rem 10rem;
+    position: absolute;
+    top: -50%;
+    transform: translate(-50%, 60%);
+  }
+
+  .contact .card__body {
+    flex-direction: row;
+ 
+  } 
+
+  .contact .button {
+    width: auto;
+    white-space: nowrap;
+    font-size: 2rem;
+  }
+}
+
+/**** FOOTER ****/
+.footer {
+  align-items: center;
+  background-color: var(--color-black);
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.footer p {
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: var(--color-gray-light);
+}
